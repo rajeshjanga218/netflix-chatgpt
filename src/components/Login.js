@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 import Header from './Header'
 import { checkValidData } from '../utils/validate'
+import { RegisterUser,loginUser } from '../utils/api'
+import { auth } from '../utils/firebaseConfig'
 
 
 const Login = () => {
@@ -10,11 +12,23 @@ const Login = () => {
   const password = useRef(null)
   const fullName = useRef(null)
 
-  const handleButtonClick=()=>{
+  const handleButtonClick= async()=>{
     // check validation
-    const errorMessage = checkValidData(email.current.value,password.current.value)
-    setErrorMessage(errorMessage)
+    const message = checkValidData(email.current.value,password.current.value)
+    setErrorMessage(message)
+  
+    if (message !== null) return;
 
+    if (!isSignInForm){
+      // signup
+      const {user,errorMessage} = await RegisterUser(auth,email.current.value,password.current.value)
+      if (errorMessage) setErrorMessage(errorMessage)
+    }else{
+      // sign in
+      const {user,errorMessage} = await loginUser(auth,email.current.value,password.current.value)
+      console.log(errorMessage)
+      if (errorMessage) setErrorMessage(errorMessage)
+    }
 
   }
 

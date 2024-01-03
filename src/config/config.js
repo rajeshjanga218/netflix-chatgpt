@@ -1,0 +1,23 @@
+const config = {
+    ENVIRONMENT : process.env.REACT_APP_ENVIRONMENT,
+
+    APIKEY : process.env.REACT_APP_APIKEY,
+    AUTH_DOMAIN :  process.env.REACT_APP_AUTH_DOMAIN,
+    PROJECT_ID : process.env.REACT_APP_PROJECT_ID,
+    STORAGE_BUCKET : process.env.REACT_APP_STORAGE_BUCKET,
+    MESSAGING_SENDER_ID : process.env.REACT_APP_MESSAGING_SENDER_ID,
+    APP_ID: process.env.REACT_APP_APP_ID,
+    MEASUREMENT_ID :  process.env.REACT_APP_MEASUREMENT_ID
+}
+
+export const ENVIRONMENT = config.ENVIRONMENT
+
+export const firebase = {
+    APIKEY:config.APIKEY,
+    AUTH_DOMAIN:config.AUTH_DOMAIN,
+    PROJECT_ID :config.PROJECT_ID,
+    STORAGE_BUCKET:config.STORAGE_BUCKET,
+    MESSAGING_SENDER_ID:config.APIKEY.MESSAGING_SENDER_ID,
+    APP_ID:config.APP_ID,
+    MEASUREMENT_ID:config.MESSAGING_SENDER_ID
+}

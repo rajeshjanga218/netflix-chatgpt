@@ -6,6 +6,11 @@
 /.pnp
 .pnp.js
 
+#enviroment variable
+.env
+.env.dev
+.env.prod
+
 package-lock.json
 
 # testing
