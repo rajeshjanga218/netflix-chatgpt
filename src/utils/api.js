@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword ,signOut,updateProfile} from "firebase/auth";
 
 export async function RegisterUser(auth,email,password){
     try {
@@ -21,3 +21,26 @@ export async function loginUser(auth,email,password){
     return {errorMessage}
     }
 }
+
+export  async function logOutUser(auth){
+    try {
+        const res = await signOut(auth)
+        return {res}
+    }catch(error){
+        return {error}
+    }
+}
+
+export async function updateUser(user){
+    try{
+        const res = await updateProfile(user, {
+        displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+        })
+    }catch(error){
+        return {error}
+    }
+}
+
+
+
+

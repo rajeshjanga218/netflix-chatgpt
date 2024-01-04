@@ -3,9 +3,12 @@ import Header from './Header'
 import { checkValidData } from '../utils/validate'
 import { RegisterUser,loginUser } from '../utils/api'
 import { auth } from '../utils/firebaseConfig'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Login = () => {
+  const navigate = useNavigate()
   const [isSignInForm,setIsSignInForm] =useState(true)
   const [errorMessage,setErrorMessage] = useState(null)
   const email = useRef(null)
@@ -23,11 +26,15 @@ const Login = () => {
       // signup
       const {user,errorMessage} = await RegisterUser(auth,email.current.value,password.current.value)
       if (errorMessage) setErrorMessage(errorMessage)
+      // const {res, console} = await updateUser()
+      navigate("/browse")
+
     }else{
       // sign in
       const {user,errorMessage} = await loginUser(auth,email.current.value,password.current.value)
       console.log(errorMessage)
       if (errorMessage) setErrorMessage(errorMessage)
+      navigate("/browse")
     }
 
   }

@@ -77,6 +77,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - login/logout pages
 - validation in form
 - useRef hook
+- integration of firebase
+- signIn and sign up api
+- implemented the redux store and user slice
+- implemented sign out
+- update profile
 
 # Features
 
