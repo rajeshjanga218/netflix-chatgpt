@@ -83,6 +83,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - implemented sign out
 - update profile
 - bugFix: not logged in try to acces browse and vise-versa
+- when unmounted the header component unsubscribed to to onAuthStateChange callback
 
 # Features
 
