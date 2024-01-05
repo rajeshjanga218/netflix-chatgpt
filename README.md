@@ -84,6 +84,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - update profile
 - bugFix: not logged in try to acces browse and vise-versa
 - when unmounted the header component unsubscribed to to onAuthStateChange callback
+- signup and create api key in TMDB
+- integrated TMDB nowplaying movies api in project
+- created custom hook fetch movies data and updated to store
 
 # Features
 

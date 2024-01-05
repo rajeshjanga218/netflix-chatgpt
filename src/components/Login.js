@@ -32,7 +32,7 @@ const Login = () => {
     }else{
       // sign in
       const {user,errorMessage} = await loginUser(auth,email.current.value,password.current.value)
-      console.log(errorMessage)
+      // console.log(errorMessage)
       if (errorMessage) setErrorMessage(errorMessage)
     
     }
