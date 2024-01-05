@@ -38,7 +38,7 @@ function Header() {
     },[])
 
   return (
-    <div className='w-full px-2 py-2 flex justify-between bg-gradient-to-b from-black'>
+    <div className='z-10 absolute top-0 left-0 w-full px-2 py-2 flex justify-between bg-gradient-to-b from-black'>
       <div>
         <img src={LOGO} alt='logo' className='w-44'/>
       </div>
