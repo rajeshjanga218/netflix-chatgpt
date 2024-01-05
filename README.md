@@ -82,6 +82,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - implemented the redux store and user slice
 - implemented sign out
 - update profile
+- bugFix: not logged in try to acces browse and vise-versa
 
 # Features
 
