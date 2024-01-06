@@ -91,6 +91,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - fetched the data for trailer video
 - updated the store with trailer video
 - embedded youtube video and autoplay
+- implemented the secondary container
+- create the movies slice
+- create the gptsearch slice
+- created the gpt search page and made the button dynamic
 
 # Features
 

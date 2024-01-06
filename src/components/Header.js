@@ -6,19 +6,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import { onAuthStateChanged } from 'firebase/auth'
 import { addUser,removeUser } from '../utils/userSlice'
 import { LOGO } from '../utils/constants'
+import {isGPTSearch} from "../utils/GPTSlice"
 
 
 
 function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const user = useSelector(store => store.user)
+  const GPTSearch = useSelector(store => store.GPTSearch.GPTSearch)
  
 
   const handleSignOut=async()=>{
    const {res,error} = await logOutUser(auth)
    if (error) return error
+  }
+
+  const handleClickButton =()=>{
+    dispatch(isGPTSearch())
   }
 
     useEffect(()=>{ 
@@ -32,7 +37,6 @@ function Header() {
              navigate("/login")
           }
         });
-
         // unsubscribe when component was unmounted
         return () => unsubscribe()
     },[])
@@ -42,9 +46,9 @@ function Header() {
       <div>
         <img src={LOGO} alt='logo' className='w-44'/>
       </div>
-      {user && <div>
-        <p className='text-white'>{user?.displayName}</p>
-        <button  onClick={handleSignOut} className='text-white' >sign out</button>
+      {user && <div className='flex gap-2 text-white items-center '>
+        <button className='border rounded-md p-2' onClick={handleClickButton}>{GPTSearch ? "Home Page":"GPT Search"}</button>
+        <button  onClick={handleSignOut} className="border rounded-md p-2" >sign out</button>
       </div>}
     </div>
   )
