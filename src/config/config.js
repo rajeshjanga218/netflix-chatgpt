@@ -7,7 +7,11 @@ const config = {
     STORAGE_BUCKET : process.env.REACT_APP_STORAGE_BUCKET,
     MESSAGING_SENDER_ID : process.env.REACT_APP_MESSAGING_SENDER_ID,
     APP_ID: process.env.REACT_APP_APP_ID,
-    MEASUREMENT_ID :  process.env.REACT_APP_MEASUREMENT_ID
+    MEASUREMENT_ID :  process.env.REACT_APP_MEASUREMENT_ID,
+
+    TMDB_AUTH_TOKEN :  process.env.REACT_APP_TMDB_AUTH_TOKEN,
+
+    GPT_API_KEY: process.env.REACT_APP_GPT_API_KEY
 }
 
 export const ENVIRONMENT = config.ENVIRONMENT
@@ -21,3 +25,7 @@ export const firebase = {
     APP_ID:config.APP_ID,
     MEASUREMENT_ID:config.MESSAGING_SENDER_ID
 }
+
+export const TMDB_AUTH_TOKEN = config.TMDB_AUTH_TOKEN
+
+export const GPT_API_KEY = config.GPT_API_KEY
