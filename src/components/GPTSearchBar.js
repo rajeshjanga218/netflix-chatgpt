@@ -9,6 +9,7 @@ const GPTSearchBar = () => {
   const GPTSearchValue = useRef()
 
   const getTMDBSearchMovies = async(movie)=>{
+    // console.log("hsgjh",API_OPTIONS)
     const data = await fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, API_OPTIONS)
     const json = await data.json()
     return json
@@ -49,21 +50,23 @@ const GPTSearchBar = () => {
 
     const GPTMovies = GPTResult.choices[0]?.message.content.split(', ')
     
+    
     const tmdbPromise = GPTMovies.map((movie)=>getTMDBSearchMovies(movie))
     
     const tmdbResults = await Promise.all(tmdbPromise)
-    console.log(tmdbResults)
-    dispatch(addGPTSearchMovies(tmdbResults))
+    // console.log(tmdbResults)
+    // console.log(GPTMovies)
+    dispatch(addGPTSearchMovies({GPTMovieNames:GPTMovies,GPTSearchMovies:tmdbResults}))
    
   }
 
   return (
-    <div className='absolute top-1/4 inset-x-1/3 p-2 grid grid-cols-6 gap-2 text-white bg-black opacity-90 rounded-md'>
-      <form onSubmit={(e)=>e.preventDefault()}>
+    <form onSubmit={(e)=>e.preventDefault()} >
+    <div className='absolute w-1/2 top-1/4 inset-x-1/4 p-4 grid grid-cols-6 gap-2 text-white bg-black opacity-75 rounded-md'>
         <input ref = {GPTSearchValue}  type='text' className='col-span-4 p-2 bg-transparent text-white border rounded-md' placeholder='serch here' />
         <button onClick={handleGPTSearchClick} type='submit' className='col-span-2 p-2 border rounded-md text-white'>Search</button>
-      </form>
     </div>
+     </form>
   )
 }
 
