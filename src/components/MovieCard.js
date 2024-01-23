@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const MovieCard = ({ posterPath }) => {
+function MovieCard({ posterPath }) {
   return (
     <div className="w-32 h-48">
       <img
@@ -9,7 +10,11 @@ const MovieCard = ({ posterPath }) => {
         alt={`movie-${posterPath}`}
       />
     </div>
-  )
+  );
 }
 
-export default MovieCard
+MovieCard.propTypes = {
+  posterPath: PropTypes.string.isRequired,
+};
+
+export default MovieCard;

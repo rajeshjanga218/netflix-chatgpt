@@ -1,11 +1,11 @@
-import OpenAI from 'openai'
+import OpenAI from 'openai';
 
 const openai = new OpenAI({
   apiKey: process.env.REACT_APP_GPT_API_KEY,
   dangerouslyAllowBrowser: true,
-})
+});
 
-export default openai
+export default openai;
 
 // {
 //   "id": "chatcmpl-8dxVtUvEOqiMcoBxuKwiar1IjZgM1",

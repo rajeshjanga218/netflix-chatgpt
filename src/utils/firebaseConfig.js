@@ -1,7 +1,7 @@
-import { getAuth } from 'firebase/auth'
-import { firebase } from '../config/config'
-import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import { getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { firebase } from '../config/config';
 
 const firebaseConfig = {
   apiKey: firebase.APIKEY,
@@ -11,10 +11,10 @@ const firebaseConfig = {
   messagingSenderId: firebase.MESSAGING_SENDER_ID,
   appId: firebase.APP_ID,
   measurementId: firebase.MEASUREMENT_ID,
-}
+};
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-export const auth = getAuth()
+export const auth = getAuth();

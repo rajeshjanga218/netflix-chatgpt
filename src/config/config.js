@@ -12,9 +12,9 @@ const config = {
   TMDB_AUTH_TOKEN: process.env.REACT_APP_TMDB_AUTH_TOKEN,
 
   GPT_API_KEY: process.env.REACT_APP_GPT_API_KEY,
-}
+};
 
-export const ENVIRONMENT = config.ENVIRONMENT
+export const { ENVIRONMENT } = config;
 
 export const firebase = {
   APIKEY: config.APIKEY,
@@ -24,8 +24,8 @@ export const firebase = {
   MESSAGING_SENDER_ID: config.APIKEY.MESSAGING_SENDER_ID,
   APP_ID: config.APP_ID,
   MEASUREMENT_ID: config.MESSAGING_SENDER_ID,
-}
+};
 
-export const TMDB_AUTH_TOKEN = config.TMDB_AUTH_TOKEN
+export const { TMDB_AUTH_TOKEN } = config;
 
-export const GPT_API_KEY = config.GPT_API_KEY
+export const { GPT_API_KEY } = config;

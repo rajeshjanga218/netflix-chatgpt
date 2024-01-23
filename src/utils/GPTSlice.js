@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const GPTSlice = createSlice({
   name: 'GPTSearch',
@@ -8,17 +8,27 @@ const GPTSlice = createSlice({
     GPTMovieNames: null,
   },
   reducers: {
+    // isGPTSearch: (state) => {
+    //   state.GPTSearch = !state.GPTSearch;
+    // },
+
     isGPTSearch: (state) => {
-      state.GPTSearch = !state.GPTSearch
+      return { ...state, GPTSearch: !state.GPTSearch };
     },
+
+    // addGPTSearchMovies: (state, action) => {
+    //   const { GPTMovieNames, GPTSearchMovies } = action.payload;
+    //   state.GPTSearchMovies = GPTSearchMovies;
+    //   state.GPTMovieNames = GPTMovieNames;
+    // },
+
     addGPTSearchMovies: (state, action) => {
-      const { GPTMovieNames, GPTSearchMovies } = action.payload
-      state.GPTSearchMovies = GPTSearchMovies
-      state.GPTMovieNames = GPTMovieNames
+      const { GPTMovieNames, GPTSearchMovies } = action.payload;
+      return { ...state, GPTSearchMovies, GPTMovieNames };
     },
   },
-})
+});
 
-export const { isGPTSearch, addGPTSearchMovies } = GPTSlice.actions
+export const { isGPTSearch, addGPTSearchMovies } = GPTSlice.actions;
 
-export default GPTSlice.reducer
+export default GPTSlice.reducer;

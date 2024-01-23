@@ -1,10 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import useMovieTrailer from '../hooks/useMovieTrailer'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import useMovieTrailer from '../hooks/useMovieTrailer';
 
-const VideoBackground = ({ id }) => {
-  const trailer = useSelector((state) => state.movies?.trailerVideo)
-  useMovieTrailer(id)
+function VideoBackground({ id }) {
+  const trailer = useSelector((state) => state.movies?.trailerVideo);
+  useMovieTrailer(id);
 
   return (
     <div className="w-full h-full">
@@ -13,9 +14,13 @@ const VideoBackground = ({ id }) => {
         src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      ></iframe>
+      />
     </div>
-  )
+  );
 }
 
-export default VideoBackground
+VideoBackground.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+export default VideoBackground;

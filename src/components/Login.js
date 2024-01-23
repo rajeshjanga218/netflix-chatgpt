@@ -1,23 +1,23 @@
-import React, { useState, useRef } from 'react'
-import Header from './Header'
-import { checkValidData } from '../utils/validate'
-import { RegisterUser, loginUser } from '../utils/api'
-import { auth } from '../utils/firebaseConfig'
-import { BG_IMAGE } from '../utils/constants'
+import React, { useState, useRef } from 'react';
+import Header from './Header';
+import { checkValidData } from '../utils/validate';
+import { RegisterUser, loginUser } from '../utils/api';
+import { auth } from '../utils/firebaseConfig';
+import { BG_IMAGE } from '../utils/constants';
 
-const Login = () => {
-  const [isSignInForm, setIsSignInForm] = useState(true)
-  const [errorMessage, setErrorMessage] = useState(null)
-  const email = useRef(null)
-  const password = useRef(null)
-  const fullName = useRef(null)
+function Login() {
+  const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const fullName = useRef(null);
 
   const handleButtonClick = async () => {
     // check validation
-    const message = checkValidData(email.current.value, password.current.value)
-    setErrorMessage(message)
+    const message = checkValidData(email.current.value, password.current.value);
+    setErrorMsg(message);
 
-    if (message !== null) return
+    if (message !== null) return;
 
     if (!isSignInForm) {
       // signup
@@ -25,8 +25,8 @@ const Login = () => {
         auth,
         email.current.value,
         password.current.value,
-      )
-      if (errorMessage) setErrorMessage(errorMessage)
+      );
+      if (errorMessage) setErrorMsg(errorMessage);
       // const {res, console} = await updateUser()
     } else {
       // sign in
@@ -34,22 +34,22 @@ const Login = () => {
         auth,
         email.current.value,
         password.current.value,
-      )
+      );
       // console.log(errorMessage)
-      if (errorMessage) setErrorMessage(errorMessage)
+      if (errorMessage) setErrorMsg(errorMessage);
     }
-  }
+  };
 
   const togleSignInForm = () => {
-    setIsSignInForm(!isSignInForm)
-  }
+    setIsSignInForm(!isSignInForm);
+  };
   return (
     <div className="relative w-full h-full">
       <Header />
       <img
         src={BG_IMAGE}
         className="w-full h-full object-cover"
-        alt="bg-image"
+        alt="bg-avatar"
       />
       <div className="absolute inset-y-[25%] inset-x-[25%] flex justify-center items-center">
         <form
@@ -82,7 +82,7 @@ const Login = () => {
             placeholder="password"
             className="bg-[#333] rounded-lg text-sm text-white block w-full p-2.5 border-1 focus:outline-none focus:border-blue-500 "
           />
-          <p className="text-red-500">{errorMessage}</p>
+          <p className="text-red-500">{errorMsg}</p>
           <button
             type="submit"
             className="p-2 bg-[#e50914] rounded-lg text-white font-bold"
@@ -92,30 +92,34 @@ const Login = () => {
           </button>
           <div className="flex justify-between">
             <div className="">
-              <input type="checkbox" id="checkbox" />
-              <label className="checkbox text-white ml-2">Remember Me</label>
+              <input type="checkbox" id="checkboxRememberMe" />
+              <label
+                htmlFor="checkboxRememberMe"
+                className="checkbox text-white ml-2"
+              >
+                Remember Me
+              </label>
             </div>
             <div className="text-white">Need help?</div>
           </div>
           <div className="">
             <p className="text-white">
-              {isSignInForm ? 'New to Netflix?' : 'Already Registered User?'}{' '}
-              <span
-                className="font-bold cursor-pointer"
-                onClick={togleSignInForm}
-              >
-                {isSignInForm ? 'Sign up now' : 'Sign In now'}
+              {isSignInForm ? 'New to Netflix?' : 'Already Registered User?'}
+              <span className="font-bold cursor-pointer">
+                <button type="button" onClick={togleSignInForm}>
+                  {isSignInForm ? 'Sign up now' : 'Sign In now'}
+                </button>
               </span>
             </p>
             <p className="text-white">
-              This page is protected by Google reCAPTCHA to ensure you're not a
-              bot. <span className="text-blue-500">Learn More.</span>
+              This page is protected by Google reCAPTCHA to ensure you&apos;re
+              not a bot. <span className="text-blue-500">Learn More.</span>
             </p>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

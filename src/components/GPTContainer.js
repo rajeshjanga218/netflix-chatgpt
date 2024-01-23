@@ -1,13 +1,13 @@
-import React from 'react'
-import GPTSearchBar from './GPTSearchBar'
-import { BG_IMAGE } from '../utils/constants'
-import { useSelector } from 'react-redux'
-import MovieList from './MovieList'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import GPTSearchBar from './GPTSearchBar';
+import { BG_IMAGE } from '../utils/constants';
+import MovieList from './MovieList';
 
-const GPTContainer = () => {
+function GPTContainer() {
   const { GPTSearchMovies, GPTMovieNames } = useSelector(
     (store) => store.GPTSearch,
-  )
+  );
 
   return (
     <div className="h-full w-full">
@@ -15,7 +15,7 @@ const GPTContainer = () => {
       <img
         className="w-full h-full fixed -z-10"
         src={BG_IMAGE}
-        alt="ng-image"
+        alt="bg-avatar"
       />
       <div className="top-1/2 absolute w-full">
         {GPTMovieNames &&
@@ -27,7 +27,7 @@ const GPTContainer = () => {
           ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default GPTContainer
+export default GPTContainer;
