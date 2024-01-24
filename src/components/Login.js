@@ -92,11 +92,11 @@ function Login() {
           </button>
           <div className="flex justify-between">
             <div className="">
-              <input type="checkbox" id="checkboxRememberMe" />
               <label
                 htmlFor="checkboxRememberMe"
                 className="checkbox text-white ml-2"
               >
+                <input type="checkbox" id="checkboxRememberMe" />
                 Remember Me
               </label>
             </div>

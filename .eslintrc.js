@@ -25,7 +25,8 @@ module.exports = {
     'react/prop-types': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'jsx-a11y/img-redundant-alt': 'warn',
+    'jsx-a11y/img-redundant-alt': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    camelcase: ['warn', { allow: ['original_title', 'overview'] }],
   },
 };
