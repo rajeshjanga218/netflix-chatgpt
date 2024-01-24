@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Header from './Header';
-import { checkValidData } from '../utils/validate';
+import checkValidData from '../utils/validate';
 import { RegisterUser, loginUser } from '../utils/api';
-import { auth } from '../utils/firebaseConfig';
+import auth from '../utils/firebaseConfig';
 import { BG_IMAGE } from '../utils/constants';
 
 function Login() {

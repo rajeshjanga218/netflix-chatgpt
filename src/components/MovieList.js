@@ -20,7 +20,14 @@ function MovieList({ title, movies }) {
 
 MovieList.propTypes = {
   title: PropTypes.string.isRequired,
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // movies: PropTypes.arrayOf(PropTypes.any).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      poster_path: PropTypes.string.isRequired,
+      // Add more properties as needed
+    }),
+  ).isRequired,
 };
 
 export default MovieList;

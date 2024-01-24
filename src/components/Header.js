@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utils/firebaseConfig';
+import auth from '../utils/firebaseConfig';
 import { logOutUser } from '../utils/api';
 import { addUser, removeUser } from '../utils/userSlice';
 import { LOGO } from '../utils/constants';
